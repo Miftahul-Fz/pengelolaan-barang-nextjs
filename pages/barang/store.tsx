@@ -27,6 +27,7 @@ export const inputBarang = () => {
             })
             if (Response.ok) {
                 console.log("Data berhasil ditambahkan");
+                window.location.href = "/barang"
             } else {
                 console.error('gagal menambahkan data')
             }
