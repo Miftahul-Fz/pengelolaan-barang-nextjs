@@ -57,7 +57,7 @@ export default function indexBarang() {
                 setBarangs((prevBarangs) => prevBarangs.filter((barang) => barang.id !== id));
             } else {
                 console.error('Gagal menghapus item');
-              }
+            }
         } catch (error) {
             console.error('terjasi keasalahan', Error)
         }
@@ -103,7 +103,8 @@ export default function indexBarang() {
                         </div>
                     </div>
                 </div>
-            </div>       
+            </div>
+            <br />       
         </div>
     )
 }
