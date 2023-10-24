@@ -10,13 +10,15 @@ type Barang = {
 }
 
 export default function indexBarang() {
-    const Router = useRouter();
-    const { id } = Router.query;
     const [barangs, setBarangs] = useState<Barang[]>([]);
 
     const fetchBarang = async () => {
         try {
-            const Response= await fetch('http://localhost:3000/api/barang')
+            const Response= await fetch('http://localhost:3000/api/barang', {
+                headers : {
+                    Accept: 'aplication/json',
+                }
+            })
             if (Response.ok) {
                 const dataBarang = await Response.json();
                 console.log('barang: ', dataBarang);
