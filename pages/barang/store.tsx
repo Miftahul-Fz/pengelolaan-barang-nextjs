@@ -18,11 +18,11 @@ export const inputBarang = () => {
         try {
             const Response = await fetch('http://localhost:3000/api/barang', {
                 method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-            Accept: 'aplication/json',
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: 'aplication/json',
             // Authorization: `Bearer ${token}`
-            },
+                },
             body: JSON.stringify(inputBarang),
             })
             if (Response.ok) {

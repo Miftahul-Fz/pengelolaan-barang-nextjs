@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import editBarang from "./edit/[id]";
-import { useRouter } from 'next/router';
+
 
 type Barang = {
     id: number;
@@ -38,7 +38,7 @@ export default function indexBarang() {
                 setBarangs(dataBarang.data);
             });
         }
-    }, [setBarangs])
+    }, [])
 
     const handleTambah = () => {
         window.location.href= "/barang/store"
@@ -91,9 +91,9 @@ export default function indexBarang() {
                                             <td> {barang.stok} </td>
                                             <td>
                                                 <Link href={`/barang/edit/${barang.id}`}>
-                                                <button>Edit</button>
+                                                    <button className="btn btn-warning btn-sm">Edit</button>
                                                 </Link>
-                                                <button onClick={() => handleHapus(barang.id)}>Hapus</button>
+                                                <button className="btn btn-danger btn-sm" onClick={() => handleHapus(barang.id)}>Hapus</button>
                                             </td>
                                         </tr>
                                         ))}

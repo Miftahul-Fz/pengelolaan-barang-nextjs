@@ -13,11 +13,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         }
     } else if (req.method === 'POST'){
         const {nama, stok} = req.body;
-        if (!nama || !stok) {
-            res.status(400).json({ error: 'Data sudah ada' });
-            return;
-        }
-
         try {
             const connection = await connect();
             await connection.execute('INSERT INTO barang (nama, stok) VALUES (?, ?)', [nama, stok]);

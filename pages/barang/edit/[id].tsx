@@ -15,10 +15,8 @@ interface Barang{
 const EditBarang = () => {
     const Router = useRouter();
     const { id } = Router.query;
-    const { register, handleSubmit, setValue, formState: { errors } } = useForm<BarangForm>();
-    // const [loading, setLoading] = useState<boolean>(true);
+    const { register, handleSubmit, formState: { errors } } = useForm<BarangForm>();
     const [isLoading, setIsLoading] = useState<boolean>(true);
-    // const [barang, setBarang] = useState<Barang>();
     const [editBarang, setEditBarang] = useState<Barang>();
 
     useEffect(() => {
@@ -82,11 +80,12 @@ const EditBarang = () => {
                         <label className="col-sm-2 col-form-label">Nama Barang:</label>
                         <div className="col-sm-10">
                             <input
-                                className="form-control"
-                                type="text"
-                                {...register('nama', { required: true })}
-                                defaultValue={editBarang?.nama}
+                            className="form-control"
+                            type="text"
+                            {...register('nama', { required: true })}
+                            defaultValue={editBarang?.nama}
                             />
+                            {errors.nama && <span>Mohon masukan nama barang</span>}
                         </div>
                     </div>
                     <br />
@@ -98,7 +97,8 @@ const EditBarang = () => {
                                 type="number"
                                 {...register('stok', { required: true })}
                                 defaultValue={editBarang?.stok}
-                            />
+                                />
+                                {errors.stok && <span>Mohon masukan stok barang</span>}
                         </div>
                     </div>
                     <br />
